@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} sow!{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+    
+        <div>Libellé : {{ article.libelle }}</a></div>
+        <div>Prix: {{ article.prix }}</div>
+        <div>Prix: {{ article.description }}</div>
+        <div>Créer le : {{ article.createdAt | date("d/m/Y à H:i:s") }}</div>
+        <hr>
+
+{% endblock %}
+

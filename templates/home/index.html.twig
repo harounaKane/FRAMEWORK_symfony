@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ parent() }} - Hello!{% endblock %}
+
+{% block body %}
+    <h1>Liste Article</h1>
+    {% for art in articles %}
+        <div>Libellé : <a href="{{path('app_home_sow', {'id': art.id})}}">{{ art.libelle }}</a></div>
+        <div>Prix: {{ art.prix }}</div>
+        <div>Créer le : {{ art.createdAt | date("d/m/Y à H:i:s") }}</div>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
