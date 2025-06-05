@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -15,12 +16,15 @@ class Article
     private ?int $id = null;
 
     #[ORM\Column(length: 50, unique: true)]
+    #[Assert\Length(min: 2, minMessage: "Le libellé doit faire {{ limit }} caractères")]
+    #[Assert\NotBlank()]
     private ?string $libelle = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column]
+    #[Assert\Positive()]
     private ?float $prix = null;
 
     #[ORM\Column]
