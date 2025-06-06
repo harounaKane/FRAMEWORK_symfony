@@ -3,7 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\Categorie;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -32,6 +37,29 @@ class ArticleForm extends AbstractType
                 ]
             ])
             ->add('prix')
+
+            ->add("categorie", EntityType::class, [
+                "label" => "Catégorie",
+                "class" => Categorie::class
+            ])
+            
+            // ->add("Sexe", ChoiceType::class, [
+            //     "mapped" => false,
+            //     "choices" => [
+            //         "Femme" => "Femme",
+            //         "Homme" => "Homme"
+            //     ],
+            //     "multiple" => false,
+            //     "expanded" => true
+            // ])
+
+            // ->add('mdp', RepeatedType::class, [
+            //     "mapped" => false,
+            //     'type' => PasswordType::class,
+            //     'first_options'  => ['label' => 'Mot de passe'],
+            //     'second_options' => ['label' => 'Confirmer le mot de passe'],
+            // ])
+
             // ->add('quantity', TextType::class, [
             //     "mapped" => false
             // ])

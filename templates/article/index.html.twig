@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Libelle</th>
                 <th>Prix</th>
+                <th>Catégorie</th>
                 <th>Created_at</th>
                 <th>actions</th>
             </tr>
@@ -21,6 +22,7 @@
                 <td>{{ article.id }}</td>
                 <td>{{ article.libelle }}</td>
                 <td>{{ article.prix }}</td>
+                <td>{{ article.categorie.nom }}</td>
                 <td>{{ article.createdAt ? article.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
